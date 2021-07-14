@@ -1,4 +1,5 @@
 {
+  "homepage": "https://jiho3894.github.io/cloneNetflix/",
   "name": "nomflix",
   "version": "0.1.0",
   "private": true,
@@ -22,8 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "eject": "react-scripts eject",
-    "deploy": "gh-pages -d build",
-    "predeploy": "npm run build"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -31,7 +32,6 @@
       "react-app/jest"
     ]
   },
-  "homepage": "https://jiho3894.github.io/nomflix"
   "browserslist": {
     "production": [
       ">0.2%",
