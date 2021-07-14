@@ -1,52 +1,65 @@
-import { moviesApi, tvApi } from '../../api';
-import React from 'react';
-import SearchPresenter from './SearchPresenter';
+import React from "react";
+import SearchPresenter from "./SearchPresenter";
+import { moviesApi, tvApi } from "../../api";
 
 export default class SearchContainer extends React.Component {
   state = {
-    moiveResults: null,
-    showResults: null,
+    movieResults: null,
+    tvResults: null,
     searchTerm: "",
-    error: null,
-    loading: false
+    loading: false,
+    error: null
   };
 
-  handleSubmit = () => {
+  handleSubmit = (event) => {
+    event.preventDefault();
     const { searchTerm } = this.state;
-    if(searchTerm !== "") {
+    if (searchTerm !== "") {
       this.searchByTerm();
     }
-  }
+  };
+
+  updateTerm = event => {
+    const {
+      target: { value }
+    } = event;
+    this.setState({
+      searchTerm: value
+    });
+  };
 
   searchByTerm = async () => {
     const { searchTerm } = this.state;
-    this.setState({ loading : true });
+    this.setState({ loading: true });
     try {
-      const {data : {results: moiveResults}} = await moviesApi.search(searchTerm);
-      const {data : {results: showResults}} = await tvApi.search(searchTerm);
-      this.setState = ({ 
-        moiveResults ,
-        showResults
+      const { 
+        data: { results: movieResults }} 
+        = await moviesApi.search(searchTerm);
+      const {
+        data: { results: tvResults }
+      } = await tvApi.search(searchTerm);
+      this.setState({
+        movieResults,
+        tvResults
       });
     } catch {
-      this.setState({
-        error: "영화를 찾지 못했습니다."
-      });
+      this.setState({ error: "결과를 찾을 수 없습니다." });
     } finally {
-      this.setState({ loading : false });
+      this.setState({ loading: false });
     }
-  }
+  };
 
   render() {
-    const { moiveResults, showResults, searchTerm, error, loading } = this.state;
+    const { movieResults, tvResults, searchTerm, loading, error } = this.state;
     return (
       <SearchPresenter
-      moiveResults = {moiveResults}
-      showResults = {showResults}
-      searchTerm = {searchTerm}
-      error = {error}
-      loading = {loading}
-      handleSubmit = {this.handleSubmit}
+        movieResults={movieResults}
+        tvResults={tvResults}
+        loading={loading}
+        error={error}
+        searchTerm={searchTerm}
+        handleSubmit={this.handleSubmit}
+        updateTerm={this.updateTerm}
       />
     );
   }
