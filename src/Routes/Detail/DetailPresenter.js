@@ -72,14 +72,14 @@ const DetailPresenter = ({ result, loading, error }) =>
   loading ? (
     <>
       <Helmet>
-        <title> Loding | Nomflix</title>
+        <title> Loding | Nomflix </title>
       </Helmet>
       <Loader />
     </>
   ) : (
     <Container>
       <Helmet>
-        <title>{result.original_title} | Nomfilx</title>
+        <title>{result.original_title ? (`${result.original_title} | Nomfilx`) : (`${result.original_name} | Nomfilx`)}</title>
       </Helmet>
       <Backdrop
         bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}

@@ -16,10 +16,8 @@ const TVPresenter = ({ topRated,
   airingToday, 
   error, 
   loading }) => loading ? (<Loader/>) : 
-  <Container>
-    <Helmet>
-      <title>TV | Nomflix</title>
-    </Helmet>
+  (<Container>
+    <Helmet title="TV | Nomflix"/>
     {topRated && topRated.length > 0 && (
       <Section title="Top Rated Shows">
       {topRated.map(show => (
@@ -63,7 +61,7 @@ const TVPresenter = ({ topRated,
     </Section>
     )}
     {error && <Error text={error}/>}
-  </Container>
+  </Container>)
 
 TVPresenter.propTypes = {
   topRated: PropTypes.array,

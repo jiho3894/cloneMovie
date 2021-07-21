@@ -17,9 +17,7 @@ const HomePresenter = ({ nowPlaying,
   error, 
   loading }) => loading ? (<Loader/>) :
   (<Container>
-    <Helmet>
-      <title>Movie | Nomflix</title>
-    </Helmet>
+    <Helmet title="Movies | Nomflix"/>
     {nowPlaying && nowPlaying.length > 0 && (
       <Section title="Now Playing">
         {nowPlaying.map(movie => (
@@ -59,7 +57,7 @@ const HomePresenter = ({ nowPlaying,
           imageUrl={movie.poster_path}
           title={movie.original_title}
           rating={movie.vote_average}
-          year={movie.release_date.substring(0, 4)}
+          year={movie.release_date}
           isMovie={true}
         />  
         ))}
