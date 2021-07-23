@@ -34,6 +34,8 @@ const SLink = styled(Link)`
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
   `;
 
 const header = ({location : {pathname}}) => (

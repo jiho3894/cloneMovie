@@ -19,7 +19,8 @@ const Form = styled.form`
 const Input = styled.input`
   all:unset;
   font-size: 30px;
-  width: 500px;
+  width: 300px;
+  margin: 30px 0 0 30px;
 `;
 
 const SearchPresenter = ({ 

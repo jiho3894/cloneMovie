@@ -6,6 +6,7 @@ const Container = styled.div`
   :not(:last-child) {
   margin-bottom: 80px;
   }
+  margin-top:20px;
 `;
 
 const Title = styled.div`
