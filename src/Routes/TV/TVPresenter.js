@@ -55,13 +55,15 @@ const TVPresenter = ({ topRated,
           imageUrl={show.poster_path}
           title={show.original_name}
           rating={show.vote_average}
-          year={show.first_air_date.substring(0, 4)}
+          year={show.first_air_date}
         />
       ))}
     </Section>
     )}
     {error && <Error text={error}/>}
-  </Container>)
+  </Container>
+)
+  
 
 TVPresenter.propTypes = {
   topRated: PropTypes.array,
