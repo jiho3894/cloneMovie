@@ -22,7 +22,7 @@ const List = styled.ul`
 `;
 
 const Item = styled.li`
-  width:50px;
+  width:100px;
   height: 50px;
   border-bottom: 5px solid 
   ${props => (props.current ? "red" : "transparent")};
@@ -48,13 +48,13 @@ const header = ({location : {pathname}}) => (
   <Header>
     <List>
       <Item current={pathname === "/"}>
-        <SLink to="/">Movies</SLink>
+        <SLink to="/">홈</SLink>
       </Item>
       <Item current={pathname === "/tv"}>
-        <SLink to="/tv">TV</SLink>
+        <SLink to="/tv">TV 프로그램</SLink>
       </Item>
       <Item current={pathname === "/search"}>
-        <SLink to="/search">Search</SLink>
+        <SLink to="/search">검색창 구현</SLink>
       </Item>
     </List>
     <Page href="https://jiho3894.github.io/CharleyBlog/#/">

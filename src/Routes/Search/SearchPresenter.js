@@ -36,7 +36,7 @@ const SearchPresenter = ({
         <title>Search | Nomflix</title>
       </Helmet>
       <Form onSubmit={handleSubmit}>
-        <Input placeholder="Search..." value={searchTerm} onChange={updateTerm}/>
+        <Input placeholder="검색" value={searchTerm} onChange={updateTerm}/>
       </Form>
       {loading ? (<Loader/>) : (
         <>

@@ -34,7 +34,7 @@ export default class DetailContainer extends React.Component{
         ({data: result} = await tvApi.showDetail(parseId));
       }
     } catch {
-      this.setState({ error: "Can't find anything." });
+      this.setState({ error: "영화 정보를 찾지 못했습니다." });
     } finally {
       this.setState({ loading: false, result });
     }
