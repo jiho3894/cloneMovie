@@ -19,7 +19,7 @@ const HomePresenter = ({ nowPlaying,
   (<Container>
     <Helmet title="Movies | Nomflix"/>
     {nowPlaying && nowPlaying.length > 0 && (
-      <Section title="Now Playing">
+      <Section title="TV 프로그램">
         {nowPlaying.map(movie => (
           <Poster
           key={movie.id}
@@ -34,7 +34,7 @@ const HomePresenter = ({ nowPlaying,
       </Section>
     )}
     {upcoming && upcoming.length > 0 && (
-      <Section title="Upcoming Movies">
+      <Section title="영화 프로그램">
         {upcoming.map(movie => (
           <Poster
           key={movie.id}
