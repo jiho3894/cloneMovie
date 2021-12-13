@@ -38,11 +38,11 @@ const SLink = styled(Link)`
   font-weight: 600;
   `;
 
-const Page = styled.a`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
-`;
+// const Page = styled.a`
+//   width: 100%;
+//   display: flex;
+//   justify-content: space-between;
+// `;
 
 const header = ({location : {pathname}}) => (
   <Header>
@@ -57,10 +57,10 @@ const header = ({location : {pathname}}) => (
         <SLink to="/search">검색창 구현</SLink>
       </Item>
     </List>
-    <Page href="https://jiho3894.github.io/CharleyBlog/#/">
+    {/* <Page href="https://jiho3894.github.io/CharleyBlog/#/">
       <br/>
       <img width="50px" height="50px" src={process.env.PUBLIC_URL + '/image/home.gif'} alt=""/>
-    </Page>
+    </Page> */}
   </Header>
 );
 
