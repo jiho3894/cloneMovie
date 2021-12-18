@@ -54,7 +54,7 @@ const header = ({location : {pathname}}) => (
         <SLink to="/tv">TV 프로그램</SLink>
       </Item>
       <Item current={pathname === "/search"}>
-        <SLink to="/search">검색창 구현</SLink>
+        <SLink to="/search">검색</SLink>
       </Item>
     </List>
     {/* <Page href="https://jiho3894.github.io/CharleyBlog/#/">
