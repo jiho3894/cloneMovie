@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Helmet } from "react-helmet";
 import Loader from "Components/Loader";
+import YouTube from "react-youtube";
 
 const Container = styled.div`
   height: calc(100vh - 50px);
@@ -17,7 +18,7 @@ const Backdrop = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url(${props => props.bgImage});
+  background-image: url(${(props) => props.bgImage});
   background-position: center center;
   background-size: cover;
   filter: blur(3px);
@@ -35,7 +36,7 @@ const Content = styled.div`
 
 const Cover = styled.div`
   width: 30%;
-  background-image: url(${props => props.bgImage});
+  background-image: url(${(props) => props.bgImage});
   background-position: center center;
   background-size: cover;
   height: 100%;
@@ -68,7 +69,17 @@ const Overview = styled.p`
   width: 50%;
 `;
 
-const DetailPresenter = ({ result, loading, error }) =>
+const opts = {
+  position: "absolute",
+  width: "100%",
+  height: "850px",
+  frameborder: "0",
+  playerVars: {
+    autoplay: 1,
+  },
+};
+
+const DetailPresenter = ({ result, loading }) =>
   loading ? (
     <>
       <Helmet>
@@ -79,7 +90,11 @@ const DetailPresenter = ({ result, loading, error }) =>
   ) : (
     <Container>
       <Helmet>
-        <title>{result.original_title ? (`${result.original_title} | Nomfilx`) : (`${result.original_name} | Nomfilx`)}</title>
+        <title>
+          {result.original_title
+            ? `${result.original_title} | Nomfilx`
+            : `${result.original_name} | Nomfilx`}
+        </title>
       </Helmet>
       <Backdrop
         bgImage={`https://image.tmdb.org/t/p/original${result.backdrop_path}`}
@@ -98,6 +113,11 @@ const DetailPresenter = ({ result, loading, error }) =>
               ? result.original_title
               : result.original_name}
           </Title>
+          {result.videos.results[0].key === null ? (
+            ""
+          ) : (
+            <YouTube opts={opts} videoId={result.videos.results[0].key} />
+          )}
           <ItemContainer>
             <Item>
               {result.release_date
@@ -119,7 +139,6 @@ const DetailPresenter = ({ result, loading, error }) =>
             </Item>
           </ItemContainer>
           <Overview>{result.overview}</Overview>
-
         </Data>
       </Content>
     </Container>
@@ -128,6 +147,6 @@ const DetailPresenter = ({ result, loading, error }) =>
 DetailPresenter.propTypes = {
   result: PropTypes.object,
   loading: PropTypes.bool.isRequired,
-  error: PropTypes.string
+  error: PropTypes.string,
 };
 export default DetailPresenter;

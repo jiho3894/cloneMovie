@@ -37,10 +37,13 @@ export default class DetailContainer extends React.Component{
       this.setState({ error: "영화 정보를 찾지 못했습니다." });
     } finally {
       this.setState({ loading: false, result });
+      console.log(result.videos.results[0].key);
     }
   } 
 
   render() {
+
+    
     const { result, error, loading } = this.state;
     return <DetailPresenter
     result = {result}
