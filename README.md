@@ -1,6 +1,4 @@
-<h1> https://jiho3894.github.io/cloneNetflix/ </h1>
-
-
+# https://jiho3894.github.io/cloneMovie/
 
 # Getting Started with Create React App
 
